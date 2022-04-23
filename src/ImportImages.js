@@ -1,8 +1,11 @@
+/**
+ *
+ *  Taken from here : https://stackoverflow.com/questions/42118296/dynamically-import-images-from-a-directory-using-webpack
+ */
+
 function importAll(r) {
 	let imgs = {};
-	r.keys().map((item, index) => {
-		imgs[item.replace('./', '')] = r(item);
-	});
+	r.keys().map((item) => (imgs[item.replace('./', '')] = r(item)));
 	return imgs;
 }
 const images = importAll(
